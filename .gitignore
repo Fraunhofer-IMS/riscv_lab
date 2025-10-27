@@ -1,0 +1,10 @@
+fpga/work/
+sw/build/
+*.log
+*.asm
+*.bin
+*.elf
+*.coe
+*.hex
+*.mem
+*.mif

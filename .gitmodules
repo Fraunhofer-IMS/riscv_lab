@@ -1,0 +1,4 @@
+[submodule "extern/neorv32"]
+	path = extern/neorv32
+	url = https://github.com/stnolting/neorv32.git
+	ignore = dirty
