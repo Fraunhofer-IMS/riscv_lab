@@ -1,7 +1,7 @@
 # Fraunhofer IMS RISC-V Lab
 
 [![Fraunhofer_IMS](https://img.shields.io/badge/Fraunhofer-IMS-179c7d.svg?longCache=true&style=flat&logo=fraunhofergesellschaft&logoColor=179c7d)](https://ims.fraunhofer.de/en.html)
-[![license](https://img.shields.io/github/license/stnolting/riscv_lab?longCache=true&style=flat&logo=bsd)](https://github.com/stnolting/riscv_lab/blob/main/LICENSE)
+[![license](https://img.shields.io/github/license/Fraunhofer-IMS/riscv_lab?longCache=true&style=flat&logo=bsd)](https://github.com/Fraunhofer-IMS/riscv_lab/blob/main/LICENSE)
 
 This repository hosts the _RISC-V Lab_, a collaborative educational project by
 [Fraunhofer IMS](https://ims.fraunhofer.de/en.html) in cooperation with the
@@ -20,8 +20,8 @@ such as custom accelerators and interfaces, hardware/software co-design, and ver
 [![riscv_logo](docs/img/riscv_logo_small.png)](https://riscv.org)
 
 We welcome contributions! If you encounter issues or have suggestions, please use GitHub
-[Issues](https://github.com/stnolting/riscv_lab/issues) or the
-[Discussions](https://github.com/stnolting/riscv_lab/discussions) board for feedback.
+[Issues](https://github.com/Fraunhofer-IMS/riscv_lab/issues) or the
+[Discussions](https://github.com/Fraunhofer-IMS/riscv_lab/discussions) board for feedback.
 Pull requests are highly appreciated! For academic or organizational inquiries,
 please contact the lab staff:
 
@@ -34,7 +34,7 @@ Clone this repository using `git`. Note that this repository uses submodules. He
 recursively to include all submodules.
 
 ```bash
-git clone --recurse-submodules https://github.com/stnolting/riscv_lab.git
+git clone --recurse-submodules https://github.com/Fraunhofer-IMS/riscv_lab.git
 ```
 
 > [!WARNING]
