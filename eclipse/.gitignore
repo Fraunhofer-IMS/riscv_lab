@@ -1,5 +1,5 @@
-fpga/work/
-sw/build/
+.settings/
+build/
 *.log
 *.asm
 *.bin

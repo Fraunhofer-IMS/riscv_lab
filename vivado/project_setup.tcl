@@ -38,15 +38,15 @@ add_files -norecurse [glob rtl/*.v]
 puts "Building NEORV32 IP module..."
 cd ../extern/neorv32/rtl/system_integration/
 source neorv32_vivado_ip.tcl
-cd ../../../../fpga/
+cd ../../../../vivado/
 set_property ip_repo_paths {../extern/neorv32/rtl/system_integration/neorv32_vivado_ip_work/packaged_ip} [current_project]
 update_ip_catalog -rebuild -scan_changes
 
 # Create block design and let Vivado manage the HDL wrapper; use that wrapper as top
 create_bd_design "riscv_lab"
 update_compile_order -fileset sources_1
-make_wrapper -files [get_files $home_path/fpga/work/${prj}.srcs/sources_1/bd/riscv_lab/riscv_lab.bd] -top
-add_files -norecurse $home_path/fpga/work/${prj}.gen/sources_1/bd/riscv_lab/hdl/riscv_lab_wrapper.v
+make_wrapper -files [get_files $home_path/vivado/work/${prj}.srcs/sources_1/bd/riscv_lab/riscv_lab.bd] -top
+add_files -norecurse $home_path/vivado/work/${prj}.gen/sources_1/bd/riscv_lab/hdl/riscv_lab_wrapper.v
 set_property top riscv_lab_wrapper [current_fileset]
 
 # Enable generation of BIN bitstream file for configuration memory programming

@@ -25,7 +25,7 @@ We welcome contributions! If you encounter issues or have suggestions, please us
 Pull requests are highly appreciated! For academic or organizational inquiries,
 please contact the lab staff:
 
-* :mailbox: **T.B.A.**
+* **T.B.A.**
 
 
 ## Prerequisites
@@ -80,7 +80,7 @@ for **interface 0** must be changed.
 ### Vivado Hardware Project
 
 Optionally, the SoC design of the FPGA can be re-build and modified.
-The [`fpga`](fpga) folder contains all requires scripts, constraint files and additional RTL resources.
+The [`vivado`](vivado) folder contains all requires scripts, constraint files and additional RTL resources.
 A README is provides to guide through the Vivado project setup.
 
 > [!TIP]
@@ -88,10 +88,9 @@ A README is provides to guide through the Vivado project setup.
 
 ### Eclipse Software Project
 
-Start coding by importing the provided [Eclipse example project](https://github.com/stnolting/neorv32/tree/main/sw/example/eclipse).
-A step-by-step tutorial can be found [here](https://stnolting.github.io/neorv32/ug/#_eclipse_ide).
-
-![eclipse_project](docs/img/eclipse.png)
+Start coding by importing the provided Eclipse example project from the [`eclipse`](eclipse) folder.
+However, please ensure beforehand that all necessary binaries (RISC-V GCC, build tools,
+openOCD) are installed.
 
 
 ## RISC-V SoC
@@ -102,7 +101,7 @@ RISC-V-compatible CPU together with on-chip memory and peripherals,
 forming a customizable, microcontroller-like setup.
 
 The specific configuration of the SoC can be determined by software by querying dedicated information registers
-(e.g., memory sizes, cache layout, UART FIFO depths, etc.). The demo program provided in the [`sw`](sw) folder, for
+(e.g., memory sizes, cache layout, UART FIFO depths, etc.). The demo program provided in the [`eclipse`](eclipse) folder, for
 example, prints the exact hardware configuration via UART. Experienced users can also refer to the TCL script of
 the Vivado project for configuration details.
 
@@ -123,12 +122,8 @@ for more information regarding the instruction set architecture.
 The Nexys A7 FPGA board offers a wide range of on-board peripherals and interfaces.
 We recommend that you familiarize yourself with the
 [Nexy A7 reference manual](https://digilent.com/reference/programmable-logic/nexys-a7/reference-manual)
-before working with the board.
-
-Most of the basic peripherals are connected to the RISC-V SoC. You can find the high-level
-block diagram in the [`fpga`](fpga) folder. A simple demo program that illustrates the use
-of the LEDs can be found in the [`sw`](sw) folder, which also provides hardware abstraction
-layer (HAL) to simplify access to the basic board peripherals.
+before working with the board. Most of the basic peripherals are connected to the RISC-V SoC.
+You can find the high-level block diagram in the [`vivado`](vivado) folder.
 
 ### Clock & Reset
 
