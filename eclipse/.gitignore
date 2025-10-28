@@ -1,0 +1,10 @@
+.settings/
+build/
+*.log
+*.asm
+*.bin
+*.elf
+*.coe
+*.hex
+*.mem
+*.mif
