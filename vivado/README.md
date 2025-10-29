@@ -361,12 +361,15 @@ Four signal wires and one ground wire are required to connect the PMOD pins to t
 ## Vivado Setup
 
 Optionally, the SoC design of the FPGA can be re-build, modified and synthesized.
-However, this stepm is not required yet as the lab staff will hand out pre-configured FPGA board.
+However, this step is not required yet as the lab staff will hand out pre-configured FPGA board.
 If you want to modify or rebuild the SoC design, a free version of AMD Vivado is required.
 
 > [!IMPORTANT]
 > Use Vivado 2024.2 or higher. If you just want to configure the FPGA using a pre-build bitstream,
 the "Vivado Lab Solutions" are sufficient.
+
+> [!TIP]
+> Pre-compiled bitstreams will be made available as release assets.
 
 ### Windows
 
