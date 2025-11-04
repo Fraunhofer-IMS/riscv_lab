@@ -22,7 +22,7 @@ The specific configuration of the SoC can be determined by software by querying 
 older, for example, prints the exact hardware configuration via UART. The demo program also includes a simple
 **hardware abstraction layer (HAL)** for easy access to the basic on-board peripherals.
 
-Detailed RISC-V SoC information such as technical specifications, tutorials, and software references
+📚 Detailed RISC-V SoC information such as technical specifications, tutorials, and software references
 can be found at the following links:
 
 * [data sheet](https://stnolting.github.io/neorv32)

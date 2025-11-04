@@ -40,12 +40,13 @@ git clone --recurse-submodules https://github.com/Fraunhofer-IMS/riscv_lab.git
 > [!WARNING]
 > If you just use the _Download_ button the **submodules will not be included** and have to be downloaded manually.
 
-The [`vivado`](vivado) folder contains the actual hardware design of the RISC-V SoC implemented
-on the FPGA. Here you will also find documentation on the integrated peripherals connected to the
-SoC. Tutorials also show you how to set up the Vivado project yourself.
+🔌 The [`vivado`](vivado) folder contains the actual **AMD Vivado** hardware design of the RISC-V
+SoC implemented on the FPGA. Here you will also find documentation on the integrated peripherals
+connected to the SoC. Tutorials also show you how to set up the Vivado project yourself.
 
-The [`eclipse`](eclipse) folder provides a preconfigured example project and instructions on how
-to set up and configure Eclipse to start coding.
+💻 The [`eclipse`](eclipse) folder provides a preconfigured **Eclipse** example project and
+instructions on how to set up and configure Eclipse to start coding. The project features a simple
+demo program and a _hardware abstraction layer (HAL)_ for the basic on-board peripherals.
 
 
 ## Legal
