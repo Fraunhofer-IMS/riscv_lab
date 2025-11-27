@@ -104,9 +104,9 @@ Clock speed:         100000000 Hz
 On-chip debugger:    enabled, 4 HW trigger(s)
 Hart ID:             0x00000000
 Architecture ID:     0x00000013
-Implementation ID:   0x01120400 (v1.12.4.0)
+Implementation ID:   0x01120408 (v1.12.4.8)
 Architecture:        rv32-little
-ISA extensions:      A C I M U X Sdext Sdtrig Smpmp Zaamo Zalrsc Zca Zicntr Zicsr Zifencei Zihpm Zkt 
+ISA extensions:      C I M U X Sdext Sdtrig Smpmp Zca Zicntr Zicsr Zifencei Zihpm Zkt 
 Tuning options:      trace fast_mul fast_shift 
 Phys. Memory Prot.:  4 region(s), 16384 bytes granularity, modes = OFF TOR NAPOT
 HPM counters:        4 counter(s), 64 bit(s) wide
@@ -118,5 +118,5 @@ CPU D-cache:         1024 bytes (16x64), bursts enabled
 Ext. bus interface:  enabled, bursts enabled
 Bus timeout (int):   2048 cycles
 Bus timeout (ext):   2048 cycles
-Peripherals:         CLINT GPIO GPTMR PWM SPI SYSINFO TRACER TRNG TWI UART0 WDT
+Peripherals:         CLINT GPIO GPTMR PWM SPI SYSINFO TRACER TRNG TWI UART0 WDT 
 ```
