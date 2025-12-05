@@ -10,6 +10,10 @@
 4. Click on **Directory** and select _this_ folder (`path/to/riscv_lab/eclipse`).
 5. Click **Finish**.
 
+> [!NOTE]
+> When code is to be executed on the processor for the first time, a debug launch configuration must first be selected.
+Click on the tiny arrow left to "GDB OpenOCD Debugging", select `eclipse_riscv_lab Default.launch` and click "Debug".
+
 > [!TIP]
 > This example project provides a simple hardware abstraction layer (HAL)
 for the board's basic IO peripherals in `riscv_soc.h`.
@@ -104,7 +108,7 @@ Clock speed:         100000000 Hz
 On-chip debugger:    enabled, 4 HW trigger(s)
 Hart ID:             0x00000000
 Architecture ID:     0x00000013
-Implementation ID:   0x01120408 (v1.12.4.8)
+Implementation ID:   0x01120501 (v1.12.5.1)
 Architecture:        rv32-little
 ISA extensions:      C I M U X Sdext Sdtrig Smpmp Zca Zicntr Zicsr Zifencei Zihpm Zkt 
 Tuning options:      trace fast_mul fast_shift 
@@ -118,5 +122,5 @@ CPU D-cache:         1024 bytes (16x64), bursts enabled
 Ext. bus interface:  enabled, bursts enabled
 Bus timeout (int):   2048 cycles
 Bus timeout (ext):   2048 cycles
-Peripherals:         CLINT GPIO GPTMR PWM SPI SYSINFO TRACER TRNG TWI UART0 WDT 
+Peripherals:         CLINT GPIO GPTMR PWM SPI SYSINFO TRACER TRNG TWI UART0 WDT
 ```
