@@ -78,7 +78,7 @@ connect_bd_net [get_bd_ports CPU_RESETN] [get_bd_pins clk_wiz_0/resetn]
 
 create_bd_cell -type ip -vlnv NEORV32:user:neorv32_vivado_ip:1.0 neorv32_vivado_ip_0
 set_property -dict [list \
-  CONFIG.CLOCK_FREQUENCY 100000000 \
+  CONFIG.CLOCK_FREQUENCY {100000000} \
   CONFIG.CPU_FAST_MUL_EN {true} \
   CONFIG.CPU_FAST_SHIFT_EN {true} \
   CONFIG.DCACHE_EN {true} \
