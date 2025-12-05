@@ -1,6 +1,5 @@
-# Recreate the RISC-V demo setup for the Nexys A7 FPGA board
+# Recreate the RISC-V lab Vivado project for the Nexys A7 FPGA board
 # copyright (c) 2025 Fraunhofer IMS, 47057 Duisburg, Germany
-# author: nolting
 # Licensed under the BSD-3-Clause license, see LICENSE for details.
 # SPDX-License-Identifier: BSD-3-Clause
 # author: nolting
@@ -16,10 +15,8 @@ set home_path [ file dirname $script_path ]
 file mkdir $outputdir
 set files [glob -nocomplain "$outputdir/*"]
 if {[llength $files] != 0} {
-  puts "deleting contents of $outputdir"
+  puts "removing artifacts from $outputdir"
   file delete -force {*}[glob -directory $outputdir *];
-} else {
-  puts "$outputdir is clean"
 }
 
 # Create new Vivado project
@@ -81,7 +78,7 @@ connect_bd_net [get_bd_ports CPU_RESETN] [get_bd_pins clk_wiz_0/resetn]
 
 create_bd_cell -type ip -vlnv NEORV32:user:neorv32_vivado_ip:1.0 neorv32_vivado_ip_0
 set_property -dict [list \
-  CONFIG.CLOCK_FREQUENCY 100000000 \
+  CONFIG.CLOCK_FREQUENCY {100000000} \
   CONFIG.CPU_FAST_MUL_EN {true} \
   CONFIG.CPU_FAST_SHIFT_EN {true} \
   CONFIG.DCACHE_EN {true} \
@@ -102,8 +99,9 @@ set_property -dict [list \
   CONFIG.IO_GPIO_IN_NUM {23} \
   CONFIG.IO_GPIO_OUT_NUM {32} \
   CONFIG.IO_GPTMR_EN {true} \
+  CONFIG.IO_GPTMR_NUM {2} \
   CONFIG.IO_PWM_EN {true} \
-  CONFIG.IO_PWM_NUM_CH {7} \
+  CONFIG.IO_PWM_NUM {7} \
   CONFIG.IO_SPI_EN {true} \
   CONFIG.IO_SPI_FIFO {16} \
   CONFIG.IO_TRACER_BUFFER {64} \
@@ -126,8 +124,6 @@ set_property -dict [list \
   CONFIG.RISCV_ISA_C {true} \
   CONFIG.RISCV_ISA_M {true} \
   CONFIG.RISCV_ISA_U {true} \
-  CONFIG.RISCV_ISA_Zaamo {true} \
-  CONFIG.RISCV_ISA_Zalrsc {true} \
   CONFIG.RISCV_ISA_Zicntr {true} \
   CONFIG.RISCV_ISA_Zihpm {true} \
   CONFIG.XBUS_EN {true} \

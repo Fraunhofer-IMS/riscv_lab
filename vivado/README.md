@@ -30,6 +30,12 @@ can be found at the following links:
 * [API reference](https://stnolting.github.io/neorv32/sw/files.html)
 * [example programs](https://github.com/stnolting/neorv32/tree/main/sw/example)
 
+> [!IMPORTANT]
+> The NEORV32 online documentation always shows the current status of the upstream repository.
+However, due to updates and fixes, this may no longer match the NEORV32 version used in this lab.
+In the `docs` folder, you will therefore find a copy of the data sheet and user guide specifically
+for the version used here.
+
 See the official [RISC-V ISA specification](https://github.com/riscv/riscv-isa-manual/releases)
 for more information regarding the instruction set architecture.
 
@@ -416,4 +422,4 @@ there is still plenty of space to implement your own circuits!
 
 | LUTs              | FFs                | BRAMs          | DSPs         |
 |:-----------------:|:------------------:|:--------------:|:------------:|
-| 5741 / 63400 (9%) | 5190 / 126800 (4%) | 88 / 135 (65%) | 4 / 240 (2%) |
+| 5721 / 63400 (9%) | 5221 / 126800 (4%) | 87 / 135 (64%) | 4 / 240 (2%) |
