@@ -25,7 +25,7 @@ We welcome contributions! If you encounter issues or have suggestions, please us
 Pull requests are highly appreciated! For academic or organizational inquiries,
 please contact the lab staff:
 
-* **T.B.A.**
+* :mailbox: [riscv@uni-due.de](mailto:riscv@uni-due.de)
 
 
 ## Getting Started
