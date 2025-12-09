@@ -108,7 +108,7 @@ Clock speed:         100000000 Hz
 On-chip debugger:    enabled, 4 HW trigger(s)
 Hart ID:             0x00000000
 Architecture ID:     0x00000013
-Implementation ID:   0x01120501 (v1.12.5.1)
+Implementation ID:   0x01120504 (v1.12.5.4)
 Architecture:        rv32-little
 ISA extensions:      C I M U X Sdext Sdtrig Smpmp Zca Zicntr Zicsr Zifencei Zihpm Zkt 
 Tuning options:      trace fast_mul fast_shift 
