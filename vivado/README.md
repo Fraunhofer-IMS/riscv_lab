@@ -48,6 +48,10 @@ We recommend that you familiarize yourself with the
 before working with the board. Most of the basic peripherals are connected to the RISC-V SoC and
 can be accessed by the application program.
 
+> [!TIP]
+> You can find a simple hardware abstraction layer (HAL) / board support package (BSP) for the basic SoC peripherals
+in [`eclipse/riscv_soc.`](https://github.com/Fraunhofer-IMS/riscv_lab/blob/main/eclipse/riscv_soc.h).
+
 ### Clock & Reset
 
 The FPGA is clocked by an on-board 100MHz quartz oscillator. This clock signal is used for the RISC-V core and all
@@ -303,27 +307,27 @@ weak pull-up resistors. The AXI-GPIO-0 provides an input pin-change interrupt (h
 [GPIO controller](https://stnolting.github.io/neorv32/#_general_purpose_input_and_output_port_gpio)
 at `gpio_i(21)`.
 
-| PMOD Pin | Function         | FPGA pin | Top port |
-|:---------|:-----------------|:--------:|:--------:|
-| 1        | AXI-GPIO-0 pin 0 | D14      | `JB[0]`  |
-| 2        | AXI-GPIO-0 pin 1 | F16      | `JB[1]`  |
-| 3        | AXI-GPIO-0 pin 2 | G16      | `JB[2]`  |
-| 4        | AXI-GPIO-0 pin 3 | H14      | `JB[3]`  |
-| 5        | Ground (GND)     | -        | -        |
-| 6        | +3.3V            | -        | -        |
-| 7        | AXI-GPIO-0 pin 4 | E16      | `JB[4]`  |
-| 8        | AXI-GPIO-0 pin 5 | F13      | `JB[5]`  |
-| 9        | AXI-GPIO-0 pin 6 | G13      | `JB[6]`  |
-| 10       | AXI-GPIO-0 pin 7 | H16      | `JB[7]`  |
-| 11       | Ground (GND)     | -        | -        |
-| 12       | +3.3V            | -        | -        |
+| PMOD Pin | Function         | FPGA pin | Top port | NEORV32 port |
+|:---------|:-----------------|:--------:|:--------:|:------------:|
+| 1        | AXI-GPIO-0 pin 0 | D14      | `JB[0]`  | -            |
+| 2        | AXI-GPIO-0 pin 1 | F16      | `JB[1]`  | -            |
+| 3        | AXI-GPIO-0 pin 2 | G16      | `JB[2]`  | -            |
+| 4        | AXI-GPIO-0 pin 3 | H14      | `JB[3]`  | -            |
+| 5        | Ground (GND)     | -        | -        | -            |
+| 6        | +3.3V            | -        | -        | -            |
+| 7        | AXI-GPIO-0 pin 4 | E16      | `JB[4]`  | -            |
+| 8        | AXI-GPIO-0 pin 5 | F13      | `JB[5]`  | -            |
+| 9        | AXI-GPIO-0 pin 6 | G13      | `JB[6]`  | -            |
+| 10       | AXI-GPIO-0 pin 7 | H16      | `JB[7]`  | -            |
+| 11       | Ground (GND)     | -        | -        | -            |
+| 12       | +3.3V            | -        | -        | -            |
 
-### PMOD JC - AXI-GPIO-1
+### PMOD JC - AXI-GPIO-1 & PWM
 
-This PMOD provides a configurable general-purpose 8-bit bi-directional GPIO port. Note that this
-port is **not** controlled directly by the RISC-V core; instead, it is controlled by an
-[AMD AXI-GPIO](https://docs.amd.com/v/u/en-US/pg144-axi-gpio) controller that is connected to the
-[external bus interface](https://stnolting.github.io/neorv32/#_processor_external_bus_interface_xbus)
+The function of this PMOD is split. The **upper row of PMDO pins** provides a configurable general-purpose 4-bit
+bi-directional GPIO port. Note that this port is **not** controlled directly by the RISC-V core; instead, it is
+controlled by an [AMD AXI-GPIO](https://docs.amd.com/v/u/en-US/pg144-axi-gpio) controller that is connected to
+the [external bus interface](https://stnolting.github.io/neorv32/#_processor_external_bus_interface_xbus)
 of the RISC-V core.
 
 The base address of this AXI-GPIO controller is `0xF0010000`. All PMDO GPIO pins provide FPGA-internal
@@ -331,20 +335,23 @@ weak pull-up resistors. The AXI-GPIO-1 also provides an input pin-change interru
 [GPIO controller](https://stnolting.github.io/neorv32/#_general_purpose_input_and_output_port_gpio)
 at `gpio_i(22)`.
 
-| PMOD Pin | Function         | FPGA pin | Top port |
-|:---------|:-----------------|:--------:|:--------:|
-| 1        | AXI-GPIO-1 pin 0 | K1       | `JC[0]`  |
-| 2        | AXI-GPIO-1 pin 1 | F6       | `JC[1]`  |
-| 3        | AXI-GPIO-1 pin 2 | J2       | `JC[2]`  |
-| 4        | AXI-GPIO-1 pin 3 | G6       | `JC[3]`  |
-| 5        | Ground (GND)     | -        | -        |
-| 6        | +3.3V            | -        | -        |
-| 7        | AXI-GPIO-1 pin 4 | E7       | `JC[4]`  |
-| 8        | AXI-GPIO-1 pin 5 | J3       | `JC[5]`  |
-| 9        | AXI-GPIO-1 pin 6 | J4       | `JC[6]`  |
-| 10       | AXI-GPIO-1 pin 7 | E6       | `JC[7]`  |
-| 11       | Ground (GND)     | -        | -        |
-| 12       | +3.3V            | -        | -        |
+The **lower row of PMOD pins** is driven by the SoC's
+[PWM controller](https://stnolting.github.io/neorv32/#_pulse_width_modulation_controller_pwm).
+
+| PMOD Pin | Function         | FPGA pin | Top port   | NEORV32 port |
+|:---------|:-----------------|:--------:|:----------:|:------------:|
+| 1        | AXI-GPIO-1 pin 0 | K1       | `JC_lo[0]` | -            |
+| 2        | AXI-GPIO-1 pin 1 | F6       | `JC_lo[1]` | -            |
+| 3        | AXI-GPIO-1 pin 2 | J2       | `JC_lo[2]` | -            |
+| 4        | AXI-GPIO-1 pin 3 | G6       | `JC_lo[3]` | -            |
+| 5        | Ground (GND)     | -        | -          | -            |
+| 6        | +3.3V            | -        | -          | -            |
+| 7        | PWM              | E7       | `JC_hi[0]` | `pwm_o(7)`   |
+| 8        | PWM              | J3       | `JC_hi[1]` | `pwm_o(8)`   |
+| 9        | PWM              | J4       | `JC_hi[2]` | `pwm_o(9)`   |
+| 10       | PWM              | E6       | `JC_hi[3]` | `pwm_o(10)`  |
+| 11       | Ground (GND)     | -        | -          | -            |
+| 12       | +3.3V            | -        | -          | -            |
 
 ### PMOD JD - RISC-V JTAG
 

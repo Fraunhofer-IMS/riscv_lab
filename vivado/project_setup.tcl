@@ -101,7 +101,7 @@ set_property -dict [list \
   CONFIG.IO_GPTMR_EN {true} \
   CONFIG.IO_GPTMR_NUM {2} \
   CONFIG.IO_PWM_EN {true} \
-  CONFIG.IO_PWM_NUM {7} \
+  CONFIG.IO_PWM_NUM {11} \
   CONFIG.IO_SPI_EN {true} \
   CONFIG.IO_SPI_FIFO {16} \
   CONFIG.IO_TRACER_BUFFER {64} \
@@ -219,7 +219,7 @@ connect_bd_net [get_bd_pins ilvector_logic_0/Op1] [get_bd_pins ilslice_5/Dout]
 
 create_bd_cell -type inline_hdl -vlnv xilinx.com:inline_hdl:ilslice:1.0 ilslice_0
 set_property -dict [list \
-  CONFIG.DIN_WIDTH {7} \
+  CONFIG.DIN_WIDTH {11} \
   CONFIG.DIN_FROM {2} \
   CONFIG.DIN_TO {0} \
 ] [get_bd_cells ilslice_0]
@@ -229,7 +229,7 @@ connect_bd_net [get_bd_pins ilslice_0/Din] [get_bd_pins neorv32_vivado_ip_0/pwm_
 
 create_bd_cell -type inline_hdl -vlnv xilinx.com:inline_hdl:ilslice:1.0 ilslice_1
 set_property -dict [list \
-  CONFIG.DIN_WIDTH {7} \
+  CONFIG.DIN_WIDTH {11} \
   CONFIG.DIN_FROM {5} \
   CONFIG.DIN_TO {3} \
 ] [get_bd_cells ilslice_1]
@@ -289,7 +289,7 @@ connect_bd_net [get_bd_ports TMP_SCL] [get_bd_pins tristate_buffer_3/IO]
 
 create_bd_cell -type inline_hdl -vlnv xilinx.com:inline_hdl:ilslice:1.0 ilslice_6
 set_property -dict [list \
-  CONFIG.DIN_WIDTH {7} \
+  CONFIG.DIN_WIDTH {11} \
   CONFIG.DIN_FROM {6} \
   CONFIG.DIN_TO {6} \
 ] [get_bd_cells ilslice_6]
@@ -368,7 +368,7 @@ connect_bd_net [get_bd_pins smartconnect_0/aclk] [get_bd_pins clk_wiz_0/clk_out1
 connect_bd_net [get_bd_pins smartconnect_0/aresetn] [get_bd_pins clk_wiz_0/locked]
 
 # *****************************
-# GPIO controller 0
+# GPIO controller 0 - PMDO JB
 # *****************************
 
 create_bd_cell -type ip -vlnv xilinx.com:ip:axi_gpio:2.0 axi_gpio_0
@@ -394,13 +394,13 @@ connect_bd_net [get_bd_ports JB] [get_bd_pins tristate_buffer_0/IO]
 connect_bd_net [get_bd_pins axi_gpio_0/ip2intc_irpt] [get_bd_pins ilconcat_0/In2]
 
 # *****************************
-# GPIO controller 1
+# GPIO controller 1 - PMOD JC_lo
 # *****************************
 
 create_bd_cell -type ip -vlnv xilinx.com:ip:axi_gpio:2.0 axi_gpio_1
 set_property location {4 1257 309} [get_bd_cells axi_gpio_1]
 set_property -dict [list \
-  CONFIG.C_GPIO_WIDTH {8} \
+  CONFIG.C_GPIO_WIDTH {4} \
   CONFIG.C_INTERRUPT_PRESENT {1} \
 ] [get_bd_cells axi_gpio_1]
 
@@ -409,16 +409,31 @@ connect_bd_net [get_bd_pins axi_gpio_1/s_axi_aresetn] [get_bd_pins clk_wiz_0/loc
 connect_bd_intf_net [get_bd_intf_pins axi_gpio_1/S_AXI] [get_bd_intf_pins smartconnect_0/M01_AXI]
 
 create_bd_cell -type module -reference tristate_buffer tristate_buffer_1
-set_property CONFIG.WIDTH {8} [get_bd_cells tristate_buffer_1]
+set_property CONFIG.WIDTH {4} [get_bd_cells tristate_buffer_1]
 
 connect_bd_net [get_bd_pins axi_gpio_1/gpio_io_i] [get_bd_pins tristate_buffer_1/O]
 connect_bd_net [get_bd_pins tristate_buffer_1/T] [get_bd_pins axi_gpio_1/gpio_io_t]
 connect_bd_net [get_bd_pins tristate_buffer_1/I] [get_bd_pins axi_gpio_1/gpio_io_o]
 
-create_bd_port -dir IO -from 7 -to 0 JC
-connect_bd_net [get_bd_ports JC] [get_bd_pins tristate_buffer_1/IO]
+create_bd_port -dir IO -from 3 -to 0 JC_lo
+connect_bd_net [get_bd_ports JC_lo] [get_bd_pins tristate_buffer_1/IO]
 
 connect_bd_net [get_bd_pins axi_gpio_1/ip2intc_irpt] [get_bd_pins ilconcat_0/In3]
+
+# *****************************
+# PWM - PMOD JC_hi
+# *****************************
+
+create_bd_cell -type inline_hdl -vlnv xilinx.com:inline_hdl:ilslice:1.0 ilslice_7
+set_property -dict [list \
+  CONFIG.DIN_FROM {10} \
+  CONFIG.DIN_TO {7} \
+  CONFIG.DIN_WIDTH {11} \
+] [get_bd_cells ilslice_7]
+
+connect_bd_net [get_bd_pins ilslice_7/Din] [get_bd_pins neorv32_vivado_ip_0/pwm_o]
+create_bd_port -dir O -from 3 -to 0 JC_hi
+connect_bd_net [get_bd_ports JC_hi] [get_bd_pins ilslice_7/Dout]
 
 # *****************************
 # Address map

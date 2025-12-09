@@ -107,15 +107,15 @@ set_property -dict { PACKAGE_PIN F13   IOSTANDARD LVCMOS33 PULLUP true } [get_po
 set_property -dict { PACKAGE_PIN G13   IOSTANDARD LVCMOS33 PULLUP true } [get_ports { JB[6] }]; #IO_0_15 Sch=jb[9]
 set_property -dict { PACKAGE_PIN H16   IOSTANDARD LVCMOS33 PULLUP true } [get_ports { JB[7] }]; #IO_L13P_T2_MRCC_15 Sch=jb[10]
 
-## Pmod Header JC - AXI GPIO1
-set_property -dict { PACKAGE_PIN K1    IOSTANDARD LVCMOS33 PULLUP true } [get_ports { JC[0] }]; #IO_L23N_T3_35 Sch=jc[1]
-set_property -dict { PACKAGE_PIN F6    IOSTANDARD LVCMOS33 PULLUP true } [get_ports { JC[1] }]; #IO_L19N_T3_VREF_35 Sch=jc[2]
-set_property -dict { PACKAGE_PIN J2    IOSTANDARD LVCMOS33 PULLUP true } [get_ports { JC[2] }]; #IO_L22N_T3_35 Sch=jc[3]
-set_property -dict { PACKAGE_PIN G6    IOSTANDARD LVCMOS33 PULLUP true } [get_ports { JC[3] }]; #IO_L19P_T3_35 Sch=jc[4]
-set_property -dict { PACKAGE_PIN E7    IOSTANDARD LVCMOS33 PULLUP true } [get_ports { JC[4] }]; #IO_L6P_T0_35 Sch=jc[7]
-set_property -dict { PACKAGE_PIN J3    IOSTANDARD LVCMOS33 PULLUP true } [get_ports { JC[5] }]; #IO_L22P_T3_35 Sch=jc[8]
-set_property -dict { PACKAGE_PIN J4    IOSTANDARD LVCMOS33 PULLUP true } [get_ports { JC[6] }]; #IO_L21P_T3_DQS_35 Sch=jc[9]
-set_property -dict { PACKAGE_PIN E6    IOSTANDARD LVCMOS33 PULLUP true } [get_ports { JC[7] }]; #IO_L5P_T0_AD13P_35 Sch=jc[10]
+## Pmod Header JC - AXI GPIO1 & PWM
+set_property -dict { PACKAGE_PIN K1    IOSTANDARD LVCMOS33 PULLUP true } [get_ports { JC_lo[0] }]; #IO_L23N_T3_35 Sch=jc[1]
+set_property -dict { PACKAGE_PIN F6    IOSTANDARD LVCMOS33 PULLUP true } [get_ports { JC_lo[1] }]; #IO_L19N_T3_VREF_35 Sch=jc[2]
+set_property -dict { PACKAGE_PIN J2    IOSTANDARD LVCMOS33 PULLUP true } [get_ports { JC_lo[2] }]; #IO_L22N_T3_35 Sch=jc[3]
+set_property -dict { PACKAGE_PIN G6    IOSTANDARD LVCMOS33 PULLUP true } [get_ports { JC_lo[3] }]; #IO_L19P_T3_35 Sch=jc[4]
+set_property -dict { PACKAGE_PIN E7    IOSTANDARD LVCMOS33 PULLUP true } [get_ports { JC_hi[0] }]; #IO_L6P_T0_35 Sch=jc[7]
+set_property -dict { PACKAGE_PIN J3    IOSTANDARD LVCMOS33 PULLUP true } [get_ports { JC_hi[1] }]; #IO_L22P_T3_35 Sch=jc[8]
+set_property -dict { PACKAGE_PIN J4    IOSTANDARD LVCMOS33 PULLUP true } [get_ports { JC_hi[2] }]; #IO_L21P_T3_DQS_35 Sch=jc[9]
+set_property -dict { PACKAGE_PIN E6    IOSTANDARD LVCMOS33 PULLUP true } [get_ports { JC_hi[3] }]; #IO_L5P_T0_AD13P_35 Sch=jc[10]
 
 ## Pmod Header JD - RISC-V JTAG
 #set_property -dict { PACKAGE_PIN H4    IOSTANDARD LVCMOS33 } [get_ports { JTAG_TDI }]; #IO_L21N_T3_DQS_35 Sch=jd[1]
