@@ -6,9 +6,9 @@
 // ================================================================================ //
 
 #include <neorv32.h>
-#include "riscv_soc.h"
 #include <stdint.h>
 #include <stdio.h>
+#include "riscv_soc.h"
 
 int main() {
 

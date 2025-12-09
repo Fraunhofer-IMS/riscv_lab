@@ -31,7 +31,6 @@
 #define LED_14 (14)
 #define LED_15 (15) // left-most LED
 
-
 /**************************************************************************
  * On-board seven-segment display; high-active
  * Connected NEORV32.GPIO.gpio_o
@@ -65,6 +64,20 @@
 #define RGB1_GREEN (4)
 #define RGB1_BLUE  (5)
 
+/**************************************************************************
+ * On-board audio jacket
+ * Connected to NEORV32.PWM.pwm_o
+ **************************************************************************/
+#define AUDIO_PWM (6)
+
+/**************************************************************************
+ * PMOD JC PWM
+ * Connected to NEORV32.PWM.pwm_o
+ **************************************************************************/
+#define PMOD_JC_PWM0 (7)
+#define PMOD_JC_PWM1 (8)
+#define PMOD_JC_PWM2 (9)
+#define PMOD_JC_PWM3 (10)
 
 /**************************************************************************
  * On-board switches; high-active
@@ -87,7 +100,6 @@
 #define SW_14 (14)
 #define SW_15 (15) // left-most switch
 
-
 /**************************************************************************
  * On-board buttons; high-active
  * Connected to NEORV32.GPIO.gpio_i
@@ -98,14 +110,6 @@
 #define BTNR (19) // right
 #define BTND (20) // down
 
-
-/**************************************************************************
- * On-board audio jacket
- * Connected to NEORV32.PWM.pwm_o
- **************************************************************************/
-#define AUDIO_PWM (6)
-
-
 /**************************************************************************
  * On-board I2C temperature sensor
  * Connected to NEORV32.TWI
@@ -113,8 +117,7 @@
 #define I2C_TEMP_SENSE_WADDR (0x96) // write address
 #define I2C_TEMP_SENSE_RADDR (0x97) // read address
 
-
-/**********************************************************************//**
+/**************************************************************************
  * AMD Vivado AXI GPIO controller
  * Connected to NEORV32.XBUS
  **************************************************************************/
@@ -137,8 +140,7 @@ typedef volatile struct __attribute__((packed,aligned(4))) {
 #define AXI_GPIO_0_IRQ (21)
 #define AXI_GPIO_1_IRQ (22)
 
-
-/**********************************************************************//**
+/**************************************************************************
  * Helper function for minimal SoC setup
  **************************************************************************/
 void riscv_soc_setup(void) {
@@ -146,13 +148,11 @@ void riscv_soc_setup(void) {
   neorv32_uart0_setup(19200, 0); // setup UART at default baud rate, no interrupts
 }
 
-
-/**********************************************************************//**
+/**************************************************************************
  * Helper function for busy wait
  **************************************************************************/
 void wait_ms(int ms) {
   neorv32_aux_delay_ms(neorv32_sysinfo_get_clk(), ms);
 }
-
 
 #endif // RISCV_SOC_H
