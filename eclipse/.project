@@ -29,5 +29,10 @@
 			<type>2</type>
 			<locationURI>$%7BPARENT-1-PROJECT_LOC%7D/extern/neorv32/sw/lib/source</locationURI>
 		</link>
+		<link>
+			<name>common</name>
+			<type>2</type>
+			<locationURI>$%7BPARENT-1-PROJECT_LOC%7D/extern/neorv32/sw/common</locationURI>
+		</link>
 	</linkedResources>
 </projectDescription>
