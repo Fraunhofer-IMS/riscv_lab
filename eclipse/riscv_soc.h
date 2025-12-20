@@ -146,6 +146,7 @@ typedef volatile struct __attribute__((packed,aligned(4))) {
 void riscv_soc_setup(void) {
   neorv32_rte_setup();           // initialize NENORV32 runtime environment
   neorv32_uart0_setup(19200, 0); // setup UART at default baud rate, no interrupts
+  neorv32_clint_time_set(0);
 }
 
 /**************************************************************************
