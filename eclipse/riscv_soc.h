@@ -127,7 +127,7 @@ typedef volatile struct __attribute__((packed,aligned(4))) {
   uint32_t DIR;             // direction control, 0=output, 1=input
   const uint32_t _res0[69]; // unused
   uint32_t GIE;             // global interrupt enable (single bit at position 31)
-  uint32_t IS;              // interrupt status (single bit at position 0)
+  uint32_t IS;              // interrupt status (one bit per GPIO)
   const uint32_t _res1[1];  // unused
   uint32_t IE;              // interrupt enable (single bit at position 0)
 } axi_gpio_t;
