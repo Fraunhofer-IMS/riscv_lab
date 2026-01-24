@@ -23,9 +23,7 @@ We welcome contributions! If you encounter issues or have suggestions, please us
 [Issues](https://github.com/Fraunhofer-IMS/riscv_lab/issues) or the
 [Discussions](https://github.com/Fraunhofer-IMS/riscv_lab/discussions) board for feedback.
 Pull requests are highly appreciated! For academic or organizational inquiries,
-please contact the lab staff:
-
-* :mailbox: [riscv@uni-due.de](mailto:riscv@uni-due.de)
+please contact the lab staff: :mailbox: [riscv@uni-due.de](mailto:riscv@uni-due.de)
 
 
 ## Getting Started
@@ -54,10 +52,9 @@ demo program and a _hardware abstraction layer (HAL)_ for the basic on-board per
 This project is released under the permissive BSD-3-clause license.
 See [`LICENSE`](LICENSE) for more information.
 
-Copyright (c) 2025 by Fraunhofer Institute for Microelectronic Circuits and Systems (_Fraunhofer IMS_).\
+> Copyright (c) 2025 by Fraunhofer Institute for Microelectronic Circuits and Systems (_Fraunhofer IMS_).\
 Finkenstrasse 61, 47057 Duisburg, Germany.\
 https://ims.fraunhofer.de/en.html
-
 
 ### Proprietary Notice
 
