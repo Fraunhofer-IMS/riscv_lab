@@ -362,14 +362,13 @@ Four signal wires and one ground wire are required to connect the PMOD pins to t
 > [!IMPORTANT]
 > Do not connect any 3.3V PMOD pin to the ESP-prog board!
 
-| PMOD Pin | Function | FPGA pin | Top port   | NEORV32 port |
-|:---------|:---------|:--------:|:----------:|:------------:|
-| 1        | TDI      | H4       | `JTAG_TDI` | `jtag_tdi_i` |
-| 2        | TDO      | H1       | `JTAG_TDO` | `jtag_tdo_o` |
-| 3        | TCK      | G1       | `JTAG_TCK` | `jtag_tck_i` |
-| 4        | TMS      | G3       | `JTAG_TMS` | `jtag_tms_i` |
-| 5        | GND      | -        | -          | -            |
-
+| PMOD Pin | Function | FPGA pin |  Top port  | NEORV32 port |
+| :------- | :------- | :------: | :--------: | :----------: |
+| 10       | TDI      |    F3    | `JTAG_TDI` | `jtag_tdi_i` |
+| 9        | TDO      |    G2    | `JTAG_TDO` | `jtag_tdo_o` |
+| 8        | TCK      |    G4    | `JTAG_TCK` | `jtag_tck_i` |
+| 7        | TMS      |    H2    | `JTAG_TMS` | `jtag_tms_i` |
+| 11       | GND      |    -     |     -      |      -       |
 
 ## Vivado Setup
 
